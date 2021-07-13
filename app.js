@@ -12,6 +12,7 @@ const usersRouter = require('./routes/users');
 const campsiteRouter = require('./routes/campsiteRouter');
 const promotionRouter = require('./routes/promotionRouter');
 const partnerRouter = require('./routes/partnerRouter');
+const favoriteRouter = require('./routes/favoriteRouter');
 const mongoose = require('mongoose');
 const connect = mongoose.connect(url, {
 	useCreateIndex: true,
@@ -63,6 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/campsites', campsiteRouter);
 app.use('/promotions', promotionRouter);
 app.use('/partners', partnerRouter);
+app.use('./favorites', favoriteRouter);
 ​
 app.use(function(req, res, next) {
 	next(createError(404));
